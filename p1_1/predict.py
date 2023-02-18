@@ -50,7 +50,6 @@ def predict_future(model,data,contest_number):
         for i,yy in enumerate(y):
             if t+i-10>=0:
                 future_results[t+i-10].append(yy)
-        print(t,t%10)
         if t>=10:
             assert len(future_results[t-10])==10
             avg_y=np.sum(future_results[t-10])/10
@@ -71,7 +70,7 @@ def draw(x,y,x_pred,y_pred):
     plt.plot(x_pred,y_pred)
     plt.show()
 if __name__ == '__main__':
-    model = keras.models.load_model('./models_save/2023_02_18_17_05_04/model_10_0.0096.h5')
+    model = keras.models.load_model('./models_save/2023_02_18_23_10_17/model_09_0.0058.h5')
     model.summary()
 
     x,y,num = get_pre_data('./Problem_C_Data_Wordle.xlsx')
