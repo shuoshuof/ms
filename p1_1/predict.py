@@ -40,7 +40,6 @@ def predict_future(model,data,contest_number):
     print(len(data))
     while t<70:
         data_x = data[start_idx+t:start_idx+t+60]
-        print(len(data_x))
         x = [xx / data_x[0]-1 for xx in data_x]
         t+=1
         x = np.array(x).reshape(1,-1)

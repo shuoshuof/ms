@@ -18,14 +18,13 @@ class mymodel(object):
         inputs_2 = keras.Input(shape=self.input_shape_2)
         x2 = keras.layers.Dense(8,activation='relu')(inputs_2)
 
-
         x2 = keras.layers.Dense(32,activation='relu')(x2)
         x2 = keras.layers.Dense(64,activation='relu')(x2)
-        x2 = keras.layers.Dense(32,activation='relu')(x2)
+        # x2 = keras.layers.Dense(32,activation='relu')(x2)
         x2 = keras.layers.Dropout(0.2)(x2)
         outputs = keras.layers.Dense(self.class_num,activation='softmax')(x2)
         model = keras.Model(inputs_2,outputs)
-        model.compile(loss=keras.losses.MeanAbsoluteError(),optimizer="adam")
+        model.compile(loss=keras.losses.MeanAbsoluteError(),optimizer="adam",metrics=['mae'])
         model.summary()
         return model
 
